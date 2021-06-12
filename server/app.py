@@ -23,6 +23,14 @@ def save():
 
 @app.route("/find")
 def find():
+    data = request.json
+    client = pymongo.MongoClient("mongodb+srv://catbat127:mongoDB@cluster0.1tnsl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE")
+    #db is the test database in client, creates it if it does not exist yet
+    db = client.test
+
+    #goes the test database and goes into/creates testCollection table
+    collection = db.testCollection
+    
     x = collection.find()
     result = []
     for record in x:
