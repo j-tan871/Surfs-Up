@@ -48,6 +48,7 @@ function Home() {
                 numBer = {item.number}
                 />)
             }
+            {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
         </div>
 
     )
