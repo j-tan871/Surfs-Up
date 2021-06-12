@@ -19,8 +19,12 @@ def save():
 
     collection.insert_one(data)
 
-    return 'success'
+    return 'success save'
 
 @app.route("/find")
-def add():
-    return 'find'
+def find():
+    x = collection.find()
+    result = []
+    for record in x:
+        result.append(record)
+    return {"saved": result}
