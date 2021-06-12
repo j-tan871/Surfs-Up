@@ -26,35 +26,18 @@ function Home() {
     }
 
     async function handleSubmit(event) {
-        // call API
-        try {
-            var map;
-            var request = {
-                query: `${category}+at+${location}`
-            }
-            var pyrmont = new window.google.maps.LatLng(-33.8665433,151.1956316);
-
-            map = new window.google.maps.Map(document.getElementById('map'), {
-                center: pyrmont,
-                zoom: 15
-            });
-
-            try {
-                var service = await new window.google.maps.places.PlacesService(map);
-                await service.textSearch(request, callback);
-            } catch (err) {
-                console.log(err);
-            }
-    
-            // reset form
-            event.preventDefault();
-            setCategory('');
-            setLocation('');
-        } catch (err) {
-            console.log(err);
+        var map;
+        var request = {
+            query: `${category}+at+${location}`
         }
-
-        // reset form
+        var pyrmont = new window.google.maps.LatLng(-33.8665433,151.1956316);
+        map = new window.google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        })
+        var service = new window.google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+        
         event.preventDefault();
         setCategory('');
         setLocation('');
@@ -64,7 +47,7 @@ function Home() {
         {
             name: 'Paris Baguette',
             address: '2300 Main St',
-            number: '1234567890'
+            rating: '4.5'
         }
     ]
     return (
@@ -87,9 +70,10 @@ function Home() {
                 key = {id}
                 name = {item.name}
                 address = {item.address}
-                numBer = {item.number}
+                raTing = {item.rating}
                 />)
             }
+            {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
         </div>
 
     )
