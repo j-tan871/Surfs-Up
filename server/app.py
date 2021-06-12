@@ -40,4 +40,4 @@ def find():
     result = []
     for record in x:
         result.append(record)
-    return json.encode({"saved": result}, cls=JSONEncoder)
+    return JSONEncoder().encode({"saved":result})
