@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import pymongo
 
 app = Flask(__name__)
@@ -18,6 +18,8 @@ def save():
     collection = db.testCollection
 
     collection.insert_one(data)
+
+    return 'success'
 
 @app.route("/find")
 def add():
