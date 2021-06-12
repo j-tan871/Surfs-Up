@@ -1,4 +1,4 @@
-# Surfs-Up
+# Beach Trip Planner - Surfs Up Hacks
 Beach Trip Planner is a web application that allows people to search for different stops to add to their travel itinerary, from restaurants to cafes to tourist attractions. Users simply need to enter the destination city and activity type, and they will instantly have access to highly-rated locations. Users can then save locations that they are interested in, and come back later to the site to view them.
 
 ## How we built it
