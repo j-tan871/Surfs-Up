@@ -40,7 +40,7 @@ function App() {
             className="navbar-horizontal navbar-dark bg-primary"
             expand="lg"
           >
-            <NavbarBrand className='px-5'><Link to="/"><h3 style={{ color: 'white' }} className='px-5'>Trip Planner</h3></Link></NavbarBrand>
+            <NavbarBrand className='px-5'><Link to="/"><h3 style={{ color: 'white' }} className='px-5'>Beach Trip Planner 🏖️🌊</h3></Link></NavbarBrand>
             <Nav className="ml-lg-auto px-5" navbar>
               <NavLink><Link to="/"><h6 style={{ color: 'white' }}>Home</h6></Link></NavLink>
               <NavLink><Link to="/saved"><h6 style={{ color: 'white' }}>Saved Locations</h6></Link></NavLink>

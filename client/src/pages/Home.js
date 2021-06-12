@@ -61,6 +61,7 @@ function Home() {
             <h1 className='display-1'>
                 Home
             </h1>
+            <p className='w-50'>Planning your next beach trip? Don’t know where to start finding hotels, restaurants, and tourist attractions? Beach Trip Planner is a one stop shop for discovering local, hidden gems! Simply enter what kind of activity you are looking for at your vacation spot, view highly-rated suggestions, and save the name and address of locations that you want to visit in the site.</p>
             <div id='map'></div>
             <h1>
                 Find locations of interest:

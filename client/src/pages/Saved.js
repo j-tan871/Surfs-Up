@@ -24,6 +24,7 @@ export default function Saved() {
     return (
         <div className='m-5'>
             <h1 className='display-1'>Saved Locations</h1>
+            <p className='mb-3'>🌴 Here are the locations that you saved. Happy travels, and don't forget to pack sunscreen! 🌴</p>
             { savedItems ? savedItems.map((item, id) => 
                 <SearchResult 
                     key={id}

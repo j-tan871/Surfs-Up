@@ -8,7 +8,7 @@ export default function SearchResult(props){
             'Content-Type': 'application/json'
         };
         try{
-            await fetch(`http://localhost:5000/save`, {
+            await fetch(`https://trip-planner-surf-api.herokuapp.com/save`, {
                 headers: headers,
                 method: 'POST',
                 body: JSON.stringify({
@@ -25,13 +25,13 @@ export default function SearchResult(props){
         <div>
             <Card className='p-3 m-3 card-lift--hover shadow border-0'>
                 <h5 className='font-weight-bold'>
-                    {props.name}
+                {props.hasButton? <span>✨</span> : <span>🤩</span>}&nbsp;{props.name}
                 </h5>
-                <p>
-                    {props.address}
+                <p className='ml-2'>
+                {props.address}
                 </p>
-                <p>
-                    Rating: {props.rating}/5 stars
+                <p className='ml-2'>
+                Rating: {props.rating}/5 stars
                 </p>
                 {
                     props.hasButton ? <Button color='primary' onClick={handleSave}>Save</Button> : null
