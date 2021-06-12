@@ -1,5 +1,10 @@
 from flask import Flask, request
 import pymongo
+from flask_cors import CORS, cross_origin
+
+app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 import json
 from bson import ObjectId
 
@@ -11,12 +16,15 @@ class JSONEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 @app.route("/")
+@cross_origin()
 def hello_world():
     return "<p>Hello World!</p>"
 
-@app.route("/save")
+@app.route("/save", methods=['POST'])
+@cross_origin()
 def save():
     data = request.json
+
     client = pymongo.MongoClient("mongodb+srv://catbat127:mongoDB@cluster0.1tnsl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE")
     #db is the test database in client, creates it if it does not exist yet
     db = client.test
@@ -29,6 +37,7 @@ def save():
     return 'success save'
 
 @app.route("/find")
+@cross_origin()
 def find():
     client = pymongo.MongoClient("mongodb+srv://catbat127:mongoDB@cluster0.1tnsl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE")
     #db is the test database in client, creates it if it does not exist yet
