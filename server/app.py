@@ -32,7 +32,12 @@ def save():
     #goes the test database and goes into/creates testCollection table
     collection = db.testCollection
 
-    collection.insert_one(data)
+    # data = { "name": "Catherine", "age": "19"}
+    # x = collection.find({ "name": "Catherine", "age": "19"})
+
+    x = collection.find(data)
+    if len(list(x)) == 0: 
+        collection.insert_one(data)
 
     return 'success save'
 
