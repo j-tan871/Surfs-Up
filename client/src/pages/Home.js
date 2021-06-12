@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Input, Container, Row, Col, Spinner } from 'reactstrap';
 import SearchResult from '../components/SearchResult';
-import image from './landscape-beach-at-sunset-cartoon-vector-11245693.jpg';
+
 
 function Home() {
     const [category, setCategory] = useState('');
@@ -102,8 +102,6 @@ function Home() {
             </Container>
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
             {/* <img style='background-image' src={image}></img> */}
-            <div  styles={{ backgroundImage:image}}>
-        </div>
         </div>
 
     )
