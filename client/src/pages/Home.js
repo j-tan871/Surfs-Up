@@ -46,6 +46,7 @@ function Home() {
                     </Input>
                 <Button onClick={handleSubmit} color='primary'>Submit</Button>
             </h4>
+            <h2 className='mt-5'>Results:</h2>
             {info.map((item, id) => <SearchResult
                 key = {id}
                 name = {item.name}
