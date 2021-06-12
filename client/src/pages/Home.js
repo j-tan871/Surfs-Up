@@ -60,7 +60,8 @@ function Home() {
             <h1 className='display-1'>
                 Home
             </h1>
-            <h1 id='map'>
+            <div id='map'></div>
+            <h1>
                 Find locations of interest:
             </h1>
             <h4>
@@ -82,7 +83,7 @@ function Home() {
                 />)
             } */}
             <Container>
-                <Row className='justify-content-md-start'>
+                <Row>
                     {answers ? answers.map((item, id) => <Col className="order-lg-2 mt-4" lg="6"><SearchResult
                         // because mapping multiple items - know which search result is what
                         key={id}
