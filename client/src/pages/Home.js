@@ -16,9 +16,28 @@ function Home() {
         console.log(location);
     }
 
-    function handleSubmit(event) {
-        console.log('hi');
-        alert('submitted');
+    function callback(results, status){
+        if (status == window.google.maps.places.PlacesServiceStatus.OK){
+            for (var i = 0; i < results.length; i++){
+                var place = results[i];
+                console.log(place)
+            }
+        }
+    }
+
+    async function handleSubmit(event) {
+        var map;
+        var request = {
+            query: `${category}+at+${location}`
+        }
+        var pyrmont = new window.google.maps.LatLng(-33.8665433,151.1956316);
+        map = new window.google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        })
+        var service = new window.google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+        
         event.preventDefault();
         setCategory('');
         setLocation('');
@@ -28,12 +47,12 @@ function Home() {
         {
             name: 'Paris Baguette',
             address: '2300 Main St',
-            number: '1234567890'
+            rating: '4.5'
         }
     ]
     return (
         <div className='m-5'>
-            <h1>
+            <h1 id='map'>
                 Find locations of interest:
             </h1>
             <h4>
@@ -51,7 +70,7 @@ function Home() {
                 key = {id}
                 name = {item.name}
                 address = {item.address}
-                numBer = {item.number}
+                raTing = {item.rating}
                 />)
             }
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
