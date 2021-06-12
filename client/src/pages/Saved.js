@@ -3,10 +3,17 @@ import { useEffect } from 'react';
 export default function Saved() {
     useEffect(() => {
         async function fetchSavedLocations() {
-            const response = await fetch('http://localhost:5000/save');
+            const headers = {
+                'Access-Control-Allow-Origin': '*'
+            }
+            const response = await fetch('http://localhost:5000/find', {
+                headers: headers, 
+                method: 'GET'
+            });
             // converts to a Javascript object
             const responseData = await response.json();
-            console.log(responseData);
+            console.log(responseData['saved']);
+            console.log('done')
         }
         fetchSavedLocations();
     }, []);

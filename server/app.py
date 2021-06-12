@@ -36,7 +36,7 @@ def save():
 
     return 'success save'
 
-@app.route("/find")
+@app.route("/find", methods=['GET'])
 @cross_origin()
 def find():
     client = pymongo.MongoClient("mongodb+srv://catbat127:mongoDB@cluster0.1tnsl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE")
