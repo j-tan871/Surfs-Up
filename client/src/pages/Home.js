@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input } from 'reactstrap';
+import { Button, Input, Container, Row, Col } from 'reactstrap';
 import SearchResult from '../components/SearchResult';
 
 function Home() {
@@ -29,14 +29,14 @@ function Home() {
         var request = {
             query: `${category}+at+${location}`
         }
-        var pyrmont = new window.google.maps.LatLng(-33.8665433,151.1956316);
+        var pyrmont = new window.google.maps.LatLng(-33.8665433, 151.1956316);
         map = new window.google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
             zoom: 15
         })
         var service = new window.google.maps.places.PlacesService(map);
         service.textSearch(request, callback);
-        
+
         event.preventDefault();
         setCategory('');
         setLocation('');
@@ -51,17 +51,20 @@ function Home() {
     // ]
     return (
         <div className='m-5'>
+            <h1 className='display-1'>
+                Home
+            </h1>
             <h1 id='map'>
                 Find locations of interest:
             </h1>
             <h4>
-                Find<Input type="text" placeholder='Ex: Restaurants' value={category} 
-                        onChange={handleCategoryChange} className='w-25 mb-2'>
-                    </Input> 
-                at <Input 
-                        type="text" placeholder='Ex: Miami Beach' value={location} 
-                        onChange={handleLocationChange} className='w-25 mb-3'>
-                    </Input>
+                Find<Input type="text" placeholder='Ex: Restaurants' value={category}
+                    onChange={handleCategoryChange} className='w-25 mb-2'>
+                </Input>
+                at <Input
+                    type="text" placeholder='Ex: Miami Beach' value={location}
+                    onChange={handleLocationChange} className='w-25 mb-3'>
+                </Input>
                 <Button onClick={handleSubmit} color='primary'>Submit</Button>
             </h4>
             <h2 className='mt-5'>Results:</h2>
@@ -72,14 +75,19 @@ function Home() {
                 raTing = {item.rating}
                 />)
             } */}
-            { answers ? answers.map((item, id) => <SearchResult
-                // because mapping multiple items - know which search result is what
-                key = {id}
-                name = {item.name}
-                address = {item.formatted_address}
-                rating = {item.rating}
-                />) : null
-            }
+            <Container>
+                <Row className='justify-content-md-start'>
+                    {answers ? answers.map((item, id) => <Col className="order-lg-2 mt-4" lg="6"><SearchResult
+                        // because mapping multiple items - know which search result is what
+                        key={id}
+                        name={item.name}
+                        address={item.formatted_address}
+                        rating={item.rating}
+                        className="order-lg-2 mt-4" lg="5"
+                    /></Col>) : null
+                    }
+                </Row>
+            </Container>
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
         </div>
 

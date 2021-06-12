@@ -4,7 +4,7 @@ import { Card, Button } from 'reactstrap';
 export default function SearchResult(props){
     return(
         <div>
-            <Card className='p-3 m-3 w-25 card-lift--hover shadow border-0'>
+            <Card className='p-3 m-3 card-lift--hover shadow border-0'>
                 <p>
                     {props.name}
                 </p>

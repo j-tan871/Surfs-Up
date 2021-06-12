@@ -5,7 +5,21 @@ import Catherine from './components/Catherine'
 import Home from './pages/Home'
 import Saved from './pages/Saved'
 import EssayForm from './test'
-import { NavItem } from 'reactstrap';
+import {
+  UncontrolledCollapse,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  NavbarBrand,
+  Navbar,
+  NavItem,
+  NavLink,
+  Nav,
+  Container,
+  Row,
+  Col
+} from "reactstrap";
+
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -22,17 +36,16 @@ function App() {
     <div>
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/saved">Saved Items</Link>
-              </li>
-            </ul>
-          </nav>
-          <h1 className='display-1 m-5'>Trip Planner</h1>
+          <Navbar
+            className="navbar-horizontal navbar-dark bg-primary"
+            expand="lg"
+          >
+            <NavbarBrand className='px-5'><Link to="/"><h3 style={{ color: 'white' }} className='px-5'>Trip Planner</h3></Link></NavbarBrand>
+            <Nav className="ml-lg-auto px-5" navbar>
+              <NavLink><Link to="/"><h6 style={{ color: 'white' }}>Home</h6></Link></NavLink>
+              <NavLink><Link to="/saved"><h6 style={{ color: 'white' }}>Saved Items</h6></Link></NavLink>
+            </Nav>
+          </Navbar>
           
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
