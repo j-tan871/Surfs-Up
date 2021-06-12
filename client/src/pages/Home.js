@@ -75,6 +75,9 @@ function Home() {
                 <Button onClick={handleSubmit} color='primary'>Submit</Button>
             </h4>
             <h1 className='mt-5 text-center'>Search Results:</h1>
+            {
+                !answers ? <p className='text-center'>Search for a location to view recommendations!</p> : null
+            }
             {/* {info.map((item, id) => <SearchResult
                 key = {id}
                 name = {item.name}
