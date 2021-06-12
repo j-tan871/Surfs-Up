@@ -12,7 +12,7 @@ export default function SearchResult(props){
                     {props.address}
                 </p>
                 <p>
-                    {props.raTing}
+                    rating: {props.rating}
                 </p>
                 <Button color='primary'>Save</Button>
             </Card>

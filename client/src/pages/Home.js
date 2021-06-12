@@ -5,23 +5,22 @@ import SearchResult from '../components/SearchResult';
 function Home() {
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
+    const [answers, setAnswers] = useState();
 
     function handleCategoryChange(event) {
         setCategory(event.target.value);
-        console.log(category);
+        // console.log(category);
     }
 
     function handleLocationChange(event) {
         setLocation(event.target.value);
-        console.log(location);
+        // console.log(location);
     }
 
     function callback(results, status) {
         if (status == window.google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              var place = results[i];
-              console.log(place);
-            }
+            setAnswers(results);
+            console.log(results[0])
         }
     }
 
@@ -43,13 +42,13 @@ function Home() {
         setLocation('');
     }
 
-    const info = [
-        {
-            name: 'Paris Baguette',
-            address: '2300 Main St',
-            rating: '4.5'
-        }
-    ]
+    // const info = [
+    //     {
+    //         name: 'Paris Baguette',
+    //         address: '2300 Main St',
+    //         rating: '4.5'
+    //     }
+    // ]
     return (
         <div className='m-5'>
             <h1 id='map'>
@@ -66,12 +65,20 @@ function Home() {
                 <Button onClick={handleSubmit} color='primary'>Submit</Button>
             </h4>
             <h2 className='mt-5'>Results:</h2>
-            {info.map((item, id) => <SearchResult
+            {/* {info.map((item, id) => <SearchResult
                 key = {id}
                 name = {item.name}
                 address = {item.address}
                 raTing = {item.rating}
                 />)
+            } */}
+            { answers ? answers.map((item, id) => <SearchResult
+                // because mapping multiple items - know which search result is what
+                key = {id}
+                name = {item.name}
+                address = {item.formatted_address}
+                rating = {item.rating}
+                />) : null
             }
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
         </div>
