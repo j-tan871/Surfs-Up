@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Input, Container, Row, Col, Spinner } from 'reactstrap';
 import SearchResult from '../components/SearchResult';
+import image from './landscape-beach-at-sunset-cartoon-vector-11245693.jpg';
 
 function Home() {
     const [category, setCategory] = useState('');
@@ -93,12 +94,16 @@ function Home() {
                         name={item.name}
                         address={item.formatted_address}
                         rating={item.rating}
+                        hasButton={true}
                         className="order-lg-2 mt-4" lg="5"
                     /></Col>) : null
                     }
                 </Row>
             </Container>
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
+            {/* <img style='background-image' src={image}></img> */}
+            <div  styles={{ backgroundImage:image}}>
+        </div>
         </div>
 
     )
