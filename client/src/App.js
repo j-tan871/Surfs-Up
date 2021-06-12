@@ -22,16 +22,6 @@ function App() {
     <div>
       <h1 className='display-1 m-5'>Trip Planner</h1>
       <Home />
-      {
-      info.map((item, id) => 
-        <searchResult 
-          key={id}
-          location={item.location}
-          address={item.address}
-          number={item.number}
-        />
-      )
-    }
     </div>
     // <div>
     //   {
