@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, Input } from 'reactstrap';
+import SearchResult from '../components/SearchResult';
 
 function Home() {
     const [category, setCategory] = useState('');
@@ -16,13 +17,20 @@ function Home() {
     }
 
     function handleSubmit(event) {
-        console.log('hi')
+        console.log('hi');
         alert('submitted');
         event.preventDefault();
         setCategory('');
         setLocation('');
     }
 
+    const info = [
+        {
+            name: 'Paris Baguette',
+            address: '2300 Main St',
+            number: '1234567890'
+        }
+    ]
     return (
         <div className='m-5'>
             <h1>
@@ -38,8 +46,15 @@ function Home() {
                     </Input>
                 <Button onClick={handleSubmit} color='primary'>Submit</Button>
             </h4>
+            {info.map((item, id) => <SearchResult
+                key = {id}
+                name = {item.name}
+                address = {item.address}
+                numBer = {item.number}
+                />)
+            }
         </div>
-        
+
     )
 }
 export default Home;
