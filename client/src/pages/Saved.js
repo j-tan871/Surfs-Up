@@ -6,7 +6,7 @@ export default function Saved() {
             const headers = {
                 'Access-Control-Allow-Origin': '*'
             }
-            const response = await fetch('http://localhost:5000/find', {
+            const response = await fetch('https://trip-planner-surf-api.herokuapp.com/find', {
                 headers: headers, 
                 method: 'GET'
             });
