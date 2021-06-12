@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Input, Container, Row, Col, Spinner } from 'reactstrap';
 import SearchResult from '../components/SearchResult';
-
+import image from '../landscape-beach-at-sunset-cartoon-vector-11245693.jpg';
 
 function Home() {
     const [category, setCategory] = useState('');
@@ -54,53 +54,67 @@ function Home() {
     //     }
     // ]
     return (
-        <div className='m-5'>
-            {
-                loading ? <Spinner color="primary" style={{ width: '3rem', height: '3rem' }}/> : null
-            }
-            <h1 className='display-1'>
-                Home
-            </h1>
-            <p className='w-50'>Planning your next beach trip? Don’t know where to start finding hotels, restaurants, and tourist attractions? Beach Trip Planner is a one stop shop for discovering local, hidden gems! Simply enter what kind of activity you are looking for at your vacation spot, view highly-rated suggestions, and save the name and address of locations that you want to visit in the site.</p>
-            <div id='map'></div>
-            <h1>
-                Find locations of interest:
-            </h1>
-            <h4>
-                Find<Input type="text" placeholder='Ex: Restaurants' value={category}
-                    onChange={handleCategoryChange} className='w-25 mb-2'>
-                </Input>
-                at <Input
-                    type="text" placeholder='Ex: Miami Beach' value={location}
-                    onChange={handleLocationChange} className='w-25 mb-3'>
-                </Input>
-                <Button onClick={handleSubmit} color='primary'>Submit</Button>
-            </h4>
-            <h1 className='mt-5 text-center'>Search Results:</h1>
-            {
-                !answers ? <p className='text-center'>Search for a location to view recommendations!</p> : null
-            }
-            {/* {info.map((item, id) => <SearchResult
+        <div>
+            <div
+                class="bg_image"
+                style={{
+                    backgroundImage: 'url(' + image + ')',
+                    backgroundSize: "cover",
+                    height: "60vh",
+                    color: "#f5f5f5"
+                }}
+            >
+                {
+                    loading ? <Spinner color="primary" style={{ width: '3rem', height: '3rem' }} /> : null
+                }
+                <div className='p-5'>
+                    <h1 className='display-1'>
+                        Home
+                    </h1>
+                    <h6 className='w-50'>Planning your next beach trip? Don’t know where to start finding hotels, restaurants, and tourist attractions? Beach Trip Planner is a one stop shop for discovering local, hidden gems! Simply enter what kind of activity you are looking for at your vacation spot, view highly-rated suggestions, and save the name and address of locations that you want to visit in the site.</h6>
+                    <div id='map'></div>
+                    <h1>
+                        Find locations of interest:
+                    </h1>
+                    <h4>
+                        Find<Input type="text" placeholder='Ex: Restaurants' value={category}
+                            onChange={handleCategoryChange} className='w-25 mb-2'>
+                        </Input>
+                        at <Input
+                            type="text" placeholder='Ex: Miami Beach' value={location}
+                            onChange={handleLocationChange} className='w-25 mb-3'>
+                        </Input>
+                        <Button onClick={handleSubmit} color='primary'>Submit</Button>
+                    </h4>
+                </div>
+            </div>
+            <div>
+                <h1 className='mt-5 text-center'>Search Results:</h1>
+                {
+                    !answers ? <p className='text-center'>Search for a location to view recommendations!</p> : null
+                }
+                {/* {info.map((item, id) => <SearchResult
                 key = {id}
                 name = {item.name}
                 address = {item.address}
                 raTing = {item.rating}
                 />)
             } */}
-            <Container>
-                <Row>
-                    {answers ? answers.map((item, id) => <Col className="order-lg-2 mt-4" lg="6"><SearchResult
-                        // because mapping multiple items - know which search result is what
-                        key={id}
-                        name={item.name}
-                        address={item.formatted_address}
-                        rating={item.rating}
-                        hasButton={true}
-                        className="order-lg-2 mt-4" lg="5"
-                    /></Col>) : null
-                    }
-                </Row>
-            </Container>
+                <Container>
+                    <Row>
+                        {answers ? answers.map((item, id) => <Col className="order-lg-2 mt-4" lg="6"><SearchResult
+                            // because mapping multiple items - know which search result is what
+                            key={id}
+                            name={item.name}
+                            address={item.formatted_address}
+                            rating={item.rating}
+                            hasButton={true}
+                            className="order-lg-2 mt-4" lg="5"
+                        /></Col>) : null
+                        }
+                    </Row>
+                </Container>
+            </div>
             {/* <div>{process.env.REACT_APP_API_KEY}</div> */}
             {/* <img style='background-image' src={image}></img> */}
         </div>

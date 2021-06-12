@@ -28,10 +28,6 @@ import {
   Link
 } from "react-router-dom";
 
-import image from './landscape-beach-at-sunset-cartoon-vector-11245693.jpg';
-//import image from './colorful-original-beach-painting-Etsy.jpg';
-//import image from './tree-palm-trees-silhouette-on-sunset-tropical-beach-and-mountain-illustration_csp36133821.jpg';
-
 function App() {
   // const searchresults = ['apple', 'pear', 'banana'];
   // const faces = [':D', ':%^)', '>:C']
@@ -51,26 +47,16 @@ function App() {
             </Nav>
           </Navbar>
 
-          <div
-            class="bg_image"
-            style={{
-              backgroundImage: 'url(' + image + ')',
-              backgroundSize: "cover",
-              height: "100vh",
-              color: "#f5f5f5"
-            }}
-          >
-            {/* A <Switch> looks through its children <Route>s and
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-            <Switch>
-              <Route path="/saved">
-                <Saved />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route path="/saved">
+              <Saved />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
         </div>
       </Router>
 
