@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Button, Input, Container, Row, Col } from 'reactstrap';
+import { Button, Input, Container, Row, Col, Spinner } from 'reactstrap';
 import SearchResult from '../components/SearchResult';
 
 function Home() {
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
     const [answers, setAnswers] = useState();
+    const [loading, setLoading] = useState(false);
 
     function handleCategoryChange(event) {
         setCategory(event.target.value);
@@ -22,9 +23,11 @@ function Home() {
             setAnswers(results);
             console.log(results[0])
         }
+        setLoading(false);
     }
 
     async function handleSubmit(event) {
+        setLoading(true);
         var map;
         var request = {
             query: `${category}+at+${location}`
@@ -51,6 +54,9 @@ function Home() {
     // ]
     return (
         <div className='m-5'>
+            {
+                loading ? <Spinner color="primary" style={{ width: '3rem', height: '3rem' }}/> : null
+            }
             <h1 className='display-1'>
                 Home
             </h1>
