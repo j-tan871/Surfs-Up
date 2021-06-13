@@ -60,7 +60,7 @@ function Home() {
                 style={{
                     backgroundImage: 'url(' + image + ')',
                     backgroundSize: "cover",
-                    height: "60vh",
+                    height: "650px",
                     color: "#f5f5f5"
                 }}
             >
